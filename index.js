@@ -1,6 +1,24 @@
 
 const retardBase = function () {
     /*
+     * @param {object} 
+     * @param {object} 
+     * @public
+     * @return {string}
+     */
+     this.div = function (attr, ins) {
+         return make('div', attr, ins);
+     };
+    /*
+     * @param {object} 
+     * @param {object} 
+     * @public
+     * @return {string}
+     */
+     this.nav = function (attr, ins) {
+         return make('nav', attr, ins);
+     };
+    /*
      * @param {object}
      * @public
      * @return {string}
