@@ -39,6 +39,12 @@ const retardBase = function () {
      */
      let full= function (elements){
          let t = '';
+         if (typeof elements.e === 'undefined')
+             elements.e = 'div';
+         if (typeof elements.a === 'undefined')
+             elements.a = {};
+         if (typeof elements.i === 'undefined')
+             elements.i = '';
          if(typeof elements.i === 'string'){
              t=elements.i; 
          }else if (typeof elements.i === 'object'){
@@ -65,18 +71,17 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-     let div = function (attributions, inside) {
-         if (typeof attributions === 'undefined')
-             attributions = {};
-         if (typeof inside === 'undefined')
-            inside = '';
-         let out = '<' + element + ' ';
-         for (let attr in attributions)
-            out += attributionFull(
-                attr, 
-                attributions[attr]
-            );
-         return out + '>' + inside + '</' + element + '>';
+     let nav = function (attr, ins) {
+         return make('nav', attr, ins);
+     };
+    /*
+     * @param {object} 
+     * @param {object} 
+     * @private
+     * @return {string}
+     */
+     let div = function (attr, ins) {
+         return make('div', attr, ins);
      };
     /*
      * @param {string} 
