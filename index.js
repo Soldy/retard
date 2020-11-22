@@ -60,6 +60,25 @@ const retardBase = function () {
          );
      };
     /*
+     * @param {object} 
+     * @param {object} 
+     * @private
+     * @return {string}
+     */
+     let div = function (attributions, inside) {
+         if (typeof attributions === 'undefined')
+             attributions = {};
+         if (typeof inside === 'undefined')
+            inside = '';
+         let out = '<' + element + ' ';
+         for (let attr in attributions)
+            out += attributionFull(
+                attr, 
+                attributions[attr]
+            );
+         return out + '>' + inside + '</' + element + '>';
+     };
+    /*
      * @param {string} 
      * @param {object} 
      * @param {object} 
@@ -67,6 +86,12 @@ const retardBase = function () {
      * @return {string}
      */
      let make = function (element, attributions, inside) {
+         if (typeof element === 'undefined')
+             return false;
+         if (typeof attributions === 'undefined')
+             attributions = {};
+         if (typeof inside === 'undefined')
+            inside = '';
          let out = '<' + element + ' ';
          for (let attr in attributions)
             out += attributionFull(
@@ -82,6 +107,8 @@ const retardBase = function () {
      * @return {string}
      */
      let single = function (element, attributions) {
+         if (typeof attributions === 'undefined')
+             attributions = {};
          let out = '<' + element + ' ';
          for (let attr in attributions)
             out += attributionFull(
