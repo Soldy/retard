@@ -1,4 +1,7 @@
-
+/*
+ *  @Soldy\retard\2018.08.14\GPL3
+ */
+'use strict';
 const retardBase = function () {
     /*
      * @param {object} 
@@ -38,7 +41,8 @@ const retardBase = function () {
     this.make = function (element, attributions, inside) {
         return make(
             element,
-            attributions, inside
+            attributions,
+            inside
         );
     };
     /*
@@ -55,7 +59,7 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let full= function (elements){
+    const full= function (elements){
         let t = '';
         if (typeof elements.e === 'undefined')
             elements.e = 'div';
@@ -89,7 +93,7 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let nav = function (attr, ins) {
+    const nav = function (attr, ins) {
         return make('nav', attr, ins);
     };
     /*
@@ -98,7 +102,7 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let div = function (attr, ins) {
+    const div = function (attr, ins) {
         return make('div', attr, ins);
     };
     /*
@@ -108,14 +112,14 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let make = function (element, attributions, inside) {
+    const make = function (element, attributions, inside) {
         if (typeof element === 'undefined')
             return false;
+        let out = '<' + element;
         if (typeof attributions === 'undefined')
             attributions = {};
         if (typeof inside === 'undefined')
             inside = '';
-        let out = '<' + element + ' ';
         for (let attr in attributions)
             out += attributionFull(
                 attr, 
@@ -129,7 +133,7 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let single = function (element, attributions) {
+    const single = function (element, attributions) {
         if (typeof attributions === 'undefined')
             attributions = {};
         let out = '<' + element + ' ';
@@ -146,15 +150,15 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    let attributionFull = function (attr, val) {
-        return '' + attr + '="' + attributionValue(val) + '" ';
+    const attributionFull = function (attr, val) {
+        return (' '+ attr + '="' + attributionValue(val) + '"');
     };
     /*
      * @param {array}||{string} 
      * @private
      * @return {string}
      */
-    let attributionValue = function (val) {
+    const attributionValue = function (val) {
         let out = '';
         if (Array.isArray(val))
             for (let i = 0; val.length > i; i++)
@@ -165,3 +169,6 @@ const retardBase = function () {
     };
 };
 
+
+
+exports.base = retardBase;
