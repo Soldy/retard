@@ -10,7 +10,7 @@ const retardBase = function () {
      * @return {string}
      */
     this.div = function (attr, ins) {
-        return div(attr, ins);
+        return _div(attr, ins);
     };
     /*
      * @param {object} 
@@ -19,7 +19,7 @@ const retardBase = function () {
      * @return {string}
      */
     this.nav = function (attr, ins) {
-        return nav(attr, ins);
+        return _nav(attr, ins);
     };
     /*
      * @param {object}
@@ -27,7 +27,7 @@ const retardBase = function () {
      * @return {string}
      */
     this.full= function (elements){
-        return full(
+        return _full(
             elements
         );
     };
@@ -39,7 +39,7 @@ const retardBase = function () {
      * @return {string}
      */
     this.make = function (element, attributions, inside) {
-        return make(
+        return _make(
             element,
             attributions,
             inside
@@ -52,14 +52,14 @@ const retardBase = function () {
      * @return {string}
      */
     this.single = function (element, attributions) {
-        return single(element, attributions);
+        return _single(element, attributions);
     };
     /*
      * @param {object} 
      * @private
      * @return {string}
      */
-    const full= function (elements){
+    const _full= function (elements){
         let t = '';
         if (typeof elements.e === 'undefined')
             elements.e = 'div';
@@ -72,16 +72,16 @@ const retardBase = function () {
         }else if (typeof elements.i === 'object'){
             if(Array.isArray(elements.i)){
                 for(let n = 0 ; elements.i.length > n ; n++)
-                    t+=full(
+                    t+= _full(
                         elements.i[n]
                     );
             }else{
-                t = full(
+                t = _full(
                     elements.i
                 );
             }
         }
-        return make(
+        return _make(
             elements.e, 
             elements.a, 
             t
@@ -93,8 +93,8 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    const nav = function (attr, ins) {
-        return make('nav', attr, ins);
+    const _nav = function (attr, ins) {
+        return _make('nav', attr, ins);
     };
     /*
      * @param {object} 
@@ -102,8 +102,8 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    const div = function (attr, ins) {
-        return make('div', attr, ins);
+    const _div = function (attr, ins) {
+        return _make('div', attr, ins);
     };
     /*
      * @param {string} 
@@ -112,7 +112,7 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    const make = function (element, attributions, inside) {
+    const _make = function (element, attributions, inside) {
         if (typeof element === 'undefined')
             return false;
         let out = '<' + element;
@@ -121,7 +121,7 @@ const retardBase = function () {
         if (typeof inside === 'undefined')
             inside = '';
         for (let attr in attributions)
-            out += attributionFull(
+            out += _attributionFull(
                 attr, 
                 attributions[attr]
             );
@@ -133,12 +133,12 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    const single = function (element, attributions) {
+    const _single = function (element, attributions) {
         if (typeof attributions === 'undefined')
             attributions = {};
         let out = '<' + element + ' ';
         for (let attr in attributions)
-            out += attributionFull(
+            out += _attributionFull(
                 attr, 
                 attributions[attr]
             );
@@ -150,15 +150,15 @@ const retardBase = function () {
      * @private
      * @return {string}
      */
-    const attributionFull = function (attr, val) {
-        return (' '+ attr + '="' + attributionValue(val) + '"');
+    const _attributionFull = function (attr, val) {
+        return (' '+ attr + '="' + _attributionValue(val) + '"');
     };
     /*
      * @param {array}||{string} 
      * @private
      * @return {string}
      */
-    const attributionValue = function (val) {
+    const _attributionValue = function (val) {
         let out = '';
         if (Array.isArray(val))
             for (let i = 0; val.length > i; i++)
