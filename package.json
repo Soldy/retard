@@ -1,6 +1,6 @@
 {
   "name": "retard",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "retard html generator",
   "main": "index.js",
   "scripts":{
@@ -11,13 +11,13 @@
       "url": "https://github.com/Soldy/retard.git"
   },
   "keywords":[],
-  "author": "Soldy",
-  "license": "GPLv3",
+  "author": "Soldy <npmjs@gidigi.com> (http://gidigi.com)",
+  "license": "GPL-3.0-or-later",
   "bugs": {
       "url": "https://github.com/Soldy/retard/issues"
   },
   "homepage": "https://github.com/Soldy/retard#readme",
   "devDependencies":{
-      "nanoTest": "0.9.9-beta5"
+      "nanoTest": "0.9.9-beta26"
   }
 }
